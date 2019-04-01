@@ -13,11 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import include, path
- 
+"""from django.contrib import admin"""
+from django.urls import path
+from simplemooc.core import views
+app_name = 'core' 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("", include('simplemooc.core.urls', namespace = 'core')),
-    path("cursos/", include('simplemooc.courses.urls', namespace = 'courses')),
+    path("", views.home, name="home"),
+    path("contato/", views.contact, name="contact")
 ]
